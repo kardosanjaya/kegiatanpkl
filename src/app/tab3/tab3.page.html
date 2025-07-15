@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar style="--background: #2196F3;">
+    <ion-title class="ion-text-center" style="color: white;">Dosen Pembimbing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+
+  <!-- FORM LOGIN -->
+  <div *ngIf="tabState === 'login'" class="ion-text-center">
+    <h2 class="ion-margin-top" style="font-weight: bold; color: #2196F3;">Login Dosen Pembimbing</h2>
+    <p style="color: #666;">Akses Panel Dosen Pembimbing</p>
+
+    <ion-card
+      style="width: 90%; max-width: 360px; margin: auto; margin-top: 20px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+      <ion-card-content>
+        <ion-item lines="inset">
+          <ion-icon name="person-outline" slot="start" color="primary"></ion-icon>
+          <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>
+        </ion-item>
+
+        <ion-item lines="inset">
+          <ion-icon name="lock-closed-outline" slot="start" color="primary"></ion-icon>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" color="primary" class="ion-margin-top" (click)="login()">
+          Masuk
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- KONTEN ADMIN -->
+  <div *ngIf="tabState === 'admin'">
+    <h2 class="ion-text-center ion-margin-top" style="color: #2196F3;">📋 Data Laporan PKL</h2>
+
+    <ion-list *ngIf="daftarkegiatan.length > 0; else tidakAdaData">
+      <ion-card *ngFor="let p of daftarkegiatan" class="ion-margin-bottom"
+        style="border-left: 6px solid #2196F3; border-radius: 10px;">
+        <ion-card-content>
+          <h3 style="margin-bottom: 6px; font-weight: bold;">👤 {{ p.nama }}</h3>
+          <p><strong>📞:</strong> {{ p.nohp }}</p>
+          <p><strong>✉️:</strong> {{ p.email }}</p>
+          <p><strong>📅:</strong> {{ p.tanggal }}</p>
+          <p><strong>🏥:</strong> {{ p.prodi }}</p>
+          <p><strong>👨‍🏫:</strong> {{ p.dosenpembimbing }}</p>
+          <p><strong>🏢:</strong> {{ p.pembimbinglapangan }}</p>
+          <p><strong>📝:</strong> {{ p.keterangan }}</p>
+
+          <!-- Tombol lihat PDF jika tersedia -->
+          <ion-button *ngIf="p.file_pdf" expand="block" fill="outline" color="primary" size="small"
+            class="ion-margin-top" (click)="lihatPDF(p.file_pdf)">
+            📄 Lihat File PDF
+          </ion-button>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+    <ng-template #tidakAdaData>
+      <ion-text color="medium">
+        <p class="ion-text-center">Belum ada laporan yang masuk.</p>
+      </ion-text>
+    </ng-template>
+
+    <ion-button expand="block" color="medium" (click)="logout()" style="margin-top: 15px;">
+      🚪 Keluar Dosen
+    </ion-button>
+  </div>
+
+</ion-content>

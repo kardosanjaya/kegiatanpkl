@@ -1,0 +1,7 @@
+{
+  "name": "kegiatanpkl",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

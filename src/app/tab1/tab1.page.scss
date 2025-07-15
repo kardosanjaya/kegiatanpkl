@@ -1,0 +1,152 @@
+.school-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.school-name {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.4rem;
+    color: #222;
+}
+
+.welcome-text {
+    margin-top: 6px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.address {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: #444;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto; // Biarkan tinggi menyesuaikan gambar
+    max-height: 160px; // Batasi tinggi maksimum jika terlalu panjang
+    object-fit: contain; // Tampilkan gambar secara utuh tanpa terpotong
+    border-radius: 10px;
+    display: block;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.gallery-grid {
+    margin-bottom: 12px; // Atau 16px jika mau lebih besar jaraknya
+}
+
+.gallery-grid+.gallery-grid {
+    border-top: 1px solid #ccc;
+    padding-top: 12px;
+    margin-top: 12px;
+}/* Umum */
+ion-content {
+  --background: #f4f6fb; // Latar belakang lembut
+}
+
+/* Logo Sekolah */
+.school-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+  border: 3px solid #2a4ba0;
+  box-shadow: 0 4px 12px rgba(42, 75, 160, 0.3);
+  object-fit: cover;
+}
+
+/* Nama Sekolah */
+.school-name {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.6rem;
+  color: #2a4ba0;
+}
+
+/* Teks Selamat Datang */
+.welcome-text {
+  margin-top: 6px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Alamat Sekolah */
+.address {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Deskripsi */
+.description {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 10px;
+  padding: 0 12px;
+  line-height: 1.5;
+}
+
+/* Kartu Kegunaan Aplikasi */
+ion-card {
+  margin-top: 18px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+ion-card:hover {
+  transform: scale(1.01);
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2a4ba0;
+}
+
+ion-card-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+ion-card-content li {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Galeri Gambar */
+.gallery-grid {
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.gallery-img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(42, 75, 160, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(42, 75, 160, 0.3);
+}

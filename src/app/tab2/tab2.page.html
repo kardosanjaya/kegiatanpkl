@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar style="--background: #2196F3;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1" style="color: white;"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="color: white;">Laporan Harian</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+
+  <ion-card style="border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <ion-card-header>
+      <ion-card-title style="color: #2196F3;">📝 Formulir Laporan Harian</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p style="color: #444;">Silakan lengkapi form berikut untuk mengisi laporan kegiatan harian PKL Anda.</p>
+
+      <ion-list lines="inset">
+
+        <ion-item>
+          <ion-label position="floating">Nama Lengkap</ion-label>
+          <ion-input type="text" [(ngModel)]="nama"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Nomor HP / WA</ion-label>
+          <ion-input type="tel" [(ngModel)]="nohp"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Tanggal</ion-label>
+          <ion-input type="date" [(ngModel)]="tanggal"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Program Studi</ion-label>
+          <ion-select [(ngModel)]="prodi" placeholder="Pilih Prodi">
+            <ion-select-option value="Teknik Informatika (S1)">Teknik Informatika (S1)</ion-select-option>
+            <ion-select-option value="Sistem Informasi (S1)">Sistem Informasi (S1)</ion-select-option>
+            <ion-select-option value="Rekayasa Perangkat Lunak (S1)">Rekayasa Perangkat Lunak (S1)</ion-select-option>
+            <ion-select-option value="Teknologi Informasi (S1)">Teknologi Informasi (S1)</ion-select-option>
+            <ion-select-option value="Teknik Elektro (S1)">Teknik Elektro (S1)</ion-select-option>
+            <ion-select-option value="Teknik Industri (S1)">Teknik Industri (S1)</ion-select-option>
+            <ion-select-option value="Manajemen Informatika (D3)">Manajemen Informatika (D3)</ion-select-option>
+            <ion-select-option value="Teknik Informatika (D3)">Teknik Informatika (D3)</ion-select-option>
+            <ion-select-option value="Akuntansi (D3)">Akuntansi (D3)</ion-select-option>
+            <ion-select-option value="Bahasa Inggris (D3)">Bahasa Inggris (D3)</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Dosen Pembimbing</ion-label>
+          <ion-select [(ngModel)]="dosenpembimbing" placeholder="Pilih Dosen">
+            <ion-select-option value="Roberto Kaban, M.kom">Roberto Kaban, M.kom</ion-select-option>
+            <ion-select-option value="Polin, MM">Polin, MM</ion-select-option>
+            <ion-select-option value="Siti Jamilah Tarigan, S.Kom, M.Kom">Siti Jamilah Tarigan, S.Kom,
+              M.Kom</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Pembimbing Lapangan</ion-label>
+          <ion-select [(ngModel)]="pembimbinglapangan" placeholder="Pilih Pembimbing Lapangan">
+            <ion-select-option value="Andre Purba, S.T">Andre Purba, S.T</ion-select-option>
+            <ion-select-option value="Marlina Hutapea, S.E">Marlina Hutapea, S.E</ion-select-option>
+            <ion-select-option value="Amanta Trigan, S.Si">Amanta Trigan, S.Si</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Pilih File PDF</ion-label>
+          <input type="file" accept="application/pdf" (change)="onFileSelected($event)" style="margin-left: 12px;" />
+        </ion-item>
+
+        <ion-text color="medium" *ngIf="pdfFileName">
+          <p class="ion-padding-start">📎 File terpilih: {{ pdfFileName }}</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Keterangan</ion-label>
+          <ion-textarea rows="3" autoGrow="true" [(ngModel)]="keterangan"></ion-textarea>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-button expand="block" color="success" class="ion-margin-top" (click)="uploadLaporan()">
+        <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+        Kirim Laporan
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
